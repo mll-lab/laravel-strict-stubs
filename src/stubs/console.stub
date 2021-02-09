@@ -10,8 +10,6 @@ class {{ class }} extends Command
 {
     protected $signature = '{{ command }}';
 
-    protected $description = 'Command description';
-
     public function handle(): int
     {
         return 0;
