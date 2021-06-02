@@ -16,4 +16,18 @@ Strictly typed replacements for the default Laravel generator stubs
 
 ## Usage
 
+To continually keep your stubs updated with the latest and greatest
+from this package, add the following to your `composer.json`:
+
+```diff
+    "scripts": {
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
++           "php artisan vendor:publish --tag=strict-stubs --force"
+        ]
+    }
+```
+
+To allow modifications, publish the stubs once:
+
     php artisan vendor:publish --tag=strict-stubs
