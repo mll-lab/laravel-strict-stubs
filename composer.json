@@ -16,7 +16,9 @@
   },
   "require-dev": {
     "orchestra/testbench": "^6 || ^7",
-    "nunomaduro/larastan": "^1 || ^2"
+    "nunomaduro/larastan": "^1 || ^2",
+    "phpstan/phpstan-phpunit": "^1.1",
+    "mll-lab/php-cs-fixer-config": "^4.4"
   },
   "autoload": {
     "psr-4": {
