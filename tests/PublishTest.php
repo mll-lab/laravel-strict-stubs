@@ -1,13 +1,12 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Tests;
 
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Testing\PendingCommand;
 
-class PublishTest extends TestCase
+final class PublishTest extends TestCase
 {
     public function testPublishStubs(): void
     {
@@ -21,25 +20,27 @@ class PublishTest extends TestCase
         $base->deleteDirectory('database/migrations');
         $base->deleteDirectory('stubs');
 
-        /** @var \Illuminate\Testing\PendingCommand $pendingPublish */
-        $pendingPublish = $this->artisan('vendor:publish --tag=strict-base');
+        $pendingPublish = $this->artisan('vendor:publish --tag=strict-stubs');
+        assert($pendingPublish instanceof PendingCommand);
         $pendingPublish
             ->assertExitCode(0)
             ->run();
 
-        /** @var \Illuminate\Testing\PendingCommand $pendingMakeMigration */
         $pendingMakeMigration = $this->artisan('make:migration foo');
+        assert($pendingMakeMigration instanceof PendingCommand);
         $pendingMakeMigration
             ->assertExitCode(0)
             ->run();
 
         $migration = $base->get('stubs/migration.stub');
+        self::assertIsString($migration);
         self::assertStringContainsString(': void', $migration);
 
         $migrations = $base->files('database/migrations');
         self::assertCount(1, $migrations);
 
         $foo = $base->get($migrations[0]);
+        self::assertIsString($foo);
         self::assertStringContainsString(': void', $foo);
     }
 }
