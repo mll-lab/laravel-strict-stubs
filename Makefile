@@ -22,9 +22,13 @@ up: ## Bring up the containers
 shell: up ## Jump into a shell in the php container
 	${dc-php} bash
 
+.PHONY: fix
+fix: up ## Apply automatic code fixes
+	${dc-php} vendor/bin/php-cs-fixer fix
+
 .PHONY: stan
 stan: up ## Run static analysis
-	${dc-php} vendor/bin/phpstan analyse --memory-limit=2048M
+	${dc-php} vendor/bin/phpstan
 
 .PHONY: test
 test: up ## Run PHPUnit tests
