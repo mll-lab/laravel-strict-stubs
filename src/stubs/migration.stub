@@ -2,10 +2,10 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-final class {{ class }} extends Migration
+return new class() extends Migration
 {
     public function up(): void
     {
         //
     }
-}
+};
