@@ -1,7 +1,7 @@
 dc-php=$$( [ -f /.dockerenv ] && echo "" || echo "docker-compose exec php")
 
 .PHONY: it
-it: vendor stan test ## Run all quality tools
+it: vendor fix stan test ## Run all quality tools
 
 .PHONY: help
 help: ## Displays this list of targets with descriptions
