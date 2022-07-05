@@ -4,12 +4,12 @@ namespace {{ namespace }};
 
 use Illuminate\Console\Command;
 
-class {{ class }} extends Command
+final class {{ class }} extends Command
 {
     protected $signature = '{{ command }}';
 
-    public function handle(): int
+    public function handle(): void
     {
-        return 0;
+        //
     }
 }

@@ -1,8 +1,9 @@
-version: '3.7'
-
 services:
   php:
-    build: .
+    build:
+      context: .
+      args:
+        USER: $USER
     volumes:
       - ./:/var/www
     environment:
