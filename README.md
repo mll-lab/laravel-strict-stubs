@@ -19,7 +19,7 @@ from this package, add the following to your `composer.json`:
     "scripts": {
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-+           "php artisan vendor:publish --tag=strict-stubs --force"
++           "@php artisan vendor:publish --tag=strict-stubs --force"
         ]
     }
 ```
