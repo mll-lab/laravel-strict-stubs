@@ -12,8 +12,8 @@ Strictly typed replacements for the default Laravel generator stubs
 
 ## Usage
 
-To continually keep your stubs updated with the latest and greatest
-from this package, add the following to your `composer.json`:
+To continually keep your stubs updated with the latest and greatest from this package,
+add `/stubs` to your `.gitignore` and add the following to your `composer.json`:
 
 ```diff
     "scripts": {
@@ -23,7 +23,3 @@ from this package, add the following to your `composer.json`:
         ]
     }
 ```
-
-To allow modifications, publish the stubs once:
-
-    php artisan vendor:publish --tag=strict-stubs
