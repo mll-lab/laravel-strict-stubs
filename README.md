@@ -1,3 +1,5 @@
+This package is now integrated into [`mll-lab/laravel-utils`](https://github.com/mll-lab/laravel-utils).
+
 # laravel-strict-stubs
 
 Strictly typed replacements for the default Laravel generator stubs
